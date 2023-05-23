@@ -107,4 +107,3 @@ This project is licensed under the [MIT License](LICENSE).
 [issues-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/issues
 [license-shield]: https://img.shields.io/github/license/Thorin-the-Bearded/ComputerGraphicsVillage.svg?style=for-the-badge
 [license-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/blob/master/LICENSE
-
