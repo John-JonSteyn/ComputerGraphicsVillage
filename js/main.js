@@ -7,10 +7,22 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+const textureLoader = new THREE.TextureLoader();
+const barnTexture = textureLoader.load('assets/barn.png');
+const doorTexture = textureLoader.load('assets/door.png');
+const grassTexture = textureLoader.load('assets/grass.png');
+const roofTexture = textureLoader.load('assets/roof.png');
+const treeTopTexture = textureLoader.load('assets/tree1.png');
+const treeMiddleTexture = textureLoader.load('assets/tree2.png');
+const treeBottomTexture = textureLoader.load('assets/tree3.png');
+const trunkTexture = textureLoader.load('assets/trunk.png');
+const waterTexture = textureLoader.load('assets/water.png');
+const windowTexture = textureLoader.load('assets/window.png');
+
 const barnWidth = 3;
 const barnHeight = 3;
 const barnDepth = 6;
-const barnColor = 0x823025;
+const barnColor = 0xb78248;
 
 const barnGeometry = new THREE.BoxGeometry(barnWidth, barnHeight, barnDepth);
 const barnMaterial = new THREE.MeshBasicMaterial({ color: barnColor });
@@ -26,7 +38,7 @@ const windowColor = 0x9ea4a3;
 
 // Window on the left side
 const window1Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
-const window1Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window1Material = new THREE.MeshBasicMaterial({ map: waterTexture });
 const window1 = new THREE.Mesh(window1Geometry, window1Material);
 window1.position.x = -barnWidth / 2 - window1Geometry.parameters.width / 2;
 window1.position.y = 0; // Adjust the position of the window on the y-axis
@@ -35,7 +47,7 @@ barn.add(window1);
 
 // Window on the right side
 const window2Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
-const window2Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window2Material = new THREE.MeshBasicMaterial({ map: waterTexture });
 const window2 = new THREE.Mesh(window2Geometry, window2Material);
 window2.position.x = barnWidth / 2 + window2Geometry.parameters.width / 2;
 window2.position.y = 0; // Adjust the position of the window on the y-axis
@@ -44,7 +56,7 @@ barn.add(window2);
 
 // Window on the back side
 const window3Geometry = new THREE.BoxGeometry(windowWidth/2, windowHeight, 0.1);
-const window3Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window3Material = new THREE.MeshBasicMaterial({ map: waterTexture });
 const window3 = new THREE.Mesh(window3Geometry, window3Material);
 window3.position.x = 0; // Adjust the position of the window on the x-axis
 window3.position.y = 0; // Adjust the position of the window on the y-axis
@@ -53,7 +65,7 @@ barn.add(window3);
 
 const doorWidth = 1;
 const doorHeight = 2;
-const doorColor = 0x953225;
+const doorColor = 0x5d3a19;
 
 const doorGeometry = new THREE.BoxGeometry(doorWidth, doorHeight, 0.1);
 const doorMaterial = new THREE.MeshBasicMaterial({ color: doorColor });
@@ -63,7 +75,7 @@ door.position.y = -barnHeight / 2 + doorHeight / 2;
 door.position.z = barnDepth / 2 + 0.05; // Position the door on the front face of the barn
 barn.add(door);
 
-const roofColor = 0x953225;
+const roofColor = 0x5d3a19;
 const roofHeight = 2;
 const roofLength = 2;
 const roofWidth = 6;
@@ -98,8 +110,6 @@ roof.position.x = -1.5;
 roof.position.z = -3;
 barn.add(roof);
 
-
-
 const groundGeometry = new THREE.PlaneGeometry(100, 100);
 const groundMaterial = new THREE.MeshBasicMaterial({ color: 0x406821 });
 const ground = new THREE.Mesh(groundGeometry, groundMaterial);
@@ -109,7 +119,7 @@ scene.add(ground);
 const pondRadius = 5;
 const pondSegments = 32;
 
-const pondMaterial = new THREE.MeshBasicMaterial({ color: 0x7ec4bb });
+const pondMaterial = new THREE.MeshBasicMaterial({ map: waterTexture });
 
 const pond1 = createPondSegment(pondRadius, pondSegments, pondMaterial, 0.01, 4, -10);
 scene.add(pond1);
@@ -141,7 +151,7 @@ tank.position.z = -2;
 scene.add(tank);
 
 const openLidGeometry = new THREE.CircleGeometry(.8, 32);
-const openLidMaterial = new THREE.MeshBasicMaterial({ color: 0x7ec4bb });
+const openLidMaterial = new THREE.MeshBasicMaterial({ map: waterTexture });
 const openLid = new THREE.Mesh(openLidGeometry, openLidMaterial);
 openLid.rotation.x = -Math.PI / 2;
 openLid.position.copy(tank.position);
