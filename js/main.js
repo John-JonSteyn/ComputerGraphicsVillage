@@ -275,6 +275,9 @@ function animate() {
   const zoomDirection = zoomVector.applyQuaternion(camera.quaternion);
   camera.position.copy(scene.position).add(zoomDirection);
 
+  camera.position.setY(cameraHeight)
+  camera.lookAt(scene.position);
+
   renderer.render(scene, camera);
 }
 
