@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-  <head>
-		<meta charset="UTF-8">
-		<title>The Village</title>
-    <link rel="stylesheet" href="./css/styles.css">
-		<style>
-			body { margin: 0; }
-		</style>
-	</head>
 
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Village</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  
 	<body>
+    <div class="controls">
+
+      <div class="control-group">
+        <div class="control-label">Rotation:</div>
+        <div class="control-buttons">
+          <div class="control-button">
+            <button class="btn" id="rotation-toggle">Toggle Rotation</button>
+          </div>
+          <div class="control-button">
+            <button class="btn" id="rotation-direction">Change Direction</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="control-group">
+        <div class="control-label">Rotation Speed:</div>
+        <div class="control-slider">
+          <input type="range" id="rotation-speed" min="0.01" max="0.1" step="0.01" value="0.05">
+        </div>
+      </div>
+    
+      <div class="control-group">
+        <div class="control-label">Zoom:</div>
+        <div class="control-slider">
+          <input type="range" id="zoom" min="0" max="1" step="0.1" value="0.5">
+        </div>
+      </div>
+    
+    </div>
+    
     <script type="module" src="/js/main.js"></script>
   </body>
   

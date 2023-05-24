@@ -1,33 +1,83 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
-  
-  #canvas {
-    width: 100%;
-    height: 100vh;
-    display: block;
-  }
-  
-  h1 {
-    text-align: center;
-    padding: 10px;
-    background-color: #f2f2f2;
-  }
-  
-  button {
-    margin: 10px;
-    padding: 8px 12px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  input[type="range"] {
-    margin: 10px;
-    width: 200px;
-  }
-  
-  
+  margin: 0;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #22272e;
+  color: #b8b9c6;
+}
+
+canvas {
+  display: block;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.controls {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  background-color: rgba(52, 53, 65, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  right: 40px;
+  outline: 1px solid #768390;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.control-label {
+  font-weight: 600;
+  color: #b8b9c6;
+  margin-bottom: 8px;
+}
+
+.control-slider {
+  flex: 1;
+  margin-top: 10px;
+}
+
+.btn {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  background-color: #2d333b;
+  color: #768390;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1px solid #768390;
+}
+
+.btn:hover {
+  background-color: #38404b;
+}
+
+.btn:active {
+  background-color: #768390;
+  color: #2d333b;
+}
