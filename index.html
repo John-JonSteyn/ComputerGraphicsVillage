@@ -7,14 +7,17 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   
-	<body>
+  <body>
     <div class="controls">
 
       <div class="control-group">
-        <div class="control-label">Rotation:</div>
+        <div class="control-label">Toggle Rotation:</div>
         <div class="control-buttons">
           <div class="control-button">
-            <button class="btn" id="rotation-toggle">Toggle Rotation</button>
+            <button class="btn" id="camera-rotation-toggle">Camera</button>
+          </div>
+          <div class="control-button">
+            <button class="btn" id="barn-rotation-toggle">Barn</button>
           </div>
           <div class="control-button">
             <button class="btn" id="rotation-direction">Change Direction</button>
@@ -25,20 +28,31 @@
       <div class="control-group">
         <div class="control-label">Rotation Speed:</div>
         <div class="control-slider">
-          <input type="range" id="rotation-speed" min="0.01" max="0.1" step="0.01" value="0.05">
+          <input type="range" id="speed" min="0.01" max="0.1" step="0.01" value="0.05">
         </div>
       </div>
     
+      <div class="control-group">
+        <div class="control-label">Height:</div>
+        <div class="control-slider">
+          <input type="range" id="height" min="0" max="1" step="0.1" value="0.5">
+        </div>
+      </div>
+
       <div class="control-group">
         <div class="control-label">Zoom:</div>
         <div class="control-slider">
           <input type="range" id="zoom" min="0" max="1" step="0.1" value="0.5">
         </div>
       </div>
+
+      
+      </div>
     
     </div>
     
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
+
   </body>
   
 </html>
