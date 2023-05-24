@@ -9,7 +9,7 @@ document.body.appendChild(renderer.domElement);
 
 const barnWidth = 3;
 const barnHeight = 3;
-const barnDepth = 3;
+const barnDepth = 6;
 const barnColor = 0x823025;
 
 const barnGeometry = new THREE.BoxGeometry(barnWidth, barnHeight, barnDepth);
@@ -21,13 +21,41 @@ barn.position.z = -3;
 scene.add(barn);
 
 const roofColor = 0x953225;
-const roofHeight = 2.2;
-const roofGeometry = new THREE.CylinderGeometry(0, barnWidth / 1.5, roofHeight, 4);
+const roofHeight = 2;
+const roofLength = 2;
+const roofWidth = 6;
+
+// Define the shape of the roof as a triangle
+const shape = new THREE.Shape();
+shape.moveTo(0, 0);
+shape.lineTo(0, roofHeight);
+shape.lineTo(roofLength, roofHeight);
+shape.lineTo(0, 0);
+
+// Define extrusion settings
+const extrudeSettings = {
+  steps: 2,
+  depth: roofWidth, // Adjust the depth to match the desired height
+  bevelEnabled: false
+};
+
+// Create the roof geometry using ExtrudeGeometry
+const roofGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+
+// Create the roof material
 const roofMaterial = new THREE.MeshBasicMaterial({ color: roofColor });
+
+// Create the roof mesh
 const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-roof.rotation.y = Math.PI / 4;
-roof.position.y = barnHeight / 2 + roofHeight / 2;
+roof.rotation.x = Math.PI / 4 * 0;
+roof.rotation.y = Math.PI / 4 * 0;
+roof.rotation.z = Math.PI / 4 * -1.05;
+roof.position.y = barnHeight / 2 + roofHeight / 2 - 1;
+roof.position.x = -1.5;
+roof.position.z = -3;
 barn.add(roof);
+
+
 
 const groundGeometry = new THREE.PlaneGeometry(100, 100);
 const groundMaterial = new THREE.MeshBasicMaterial({ color: 0x406821 });
@@ -64,7 +92,7 @@ function createPondSegment(radius, segments, material, yPos, zPos, xPos) {
 const tankGeometry = new THREE.CylinderGeometry(1, 1, 3, 16);
 const tankMaterial = new THREE.MeshBasicMaterial({ color: 0x9ea4a3 });
 const tank = new THREE.Mesh(tankGeometry, tankMaterial);
-tank.position.x = 5;
+tank.position.x = 7;
 tank.position.y = 1.48;
 tank.position.z = -2;
 scene.add(tank);
@@ -80,7 +108,7 @@ scene.add(openLid);
 const platformGeometry = new THREE.BoxGeometry(2, 0.2, 2);
 const platformMaterial = new THREE.MeshBasicMaterial({ color: 0x9ea4a3 });
 const platform = new THREE.Mesh(platformGeometry, platformMaterial);
-platform.position.x = 5;
+platform.position.x = 7;
 platform.position.y = 0.1;
 platform.position.z = -2;
 scene.add(platform);
