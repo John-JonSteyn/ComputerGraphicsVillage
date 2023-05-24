@@ -20,6 +20,49 @@ barn.position.y = 1.5;
 barn.position.z = -3;
 scene.add(barn);
 
+const windowWidth = barnWidth * 0.8; // Adjust the window width as desired
+const windowHeight = barnHeight / 2;
+const windowColor = 0x9ea4a3;
+
+// Window on the left side
+const window1Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
+const window1Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window1 = new THREE.Mesh(window1Geometry, window1Material);
+window1.position.x = -barnWidth / 2 - window1Geometry.parameters.width / 2;
+window1.position.y = 0; // Adjust the position of the window on the y-axis
+window1.position.z = 0; // Adjust the position of the window on the z-axis
+barn.add(window1);
+
+// Window on the right side
+const window2Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
+const window2Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window2 = new THREE.Mesh(window2Geometry, window2Material);
+window2.position.x = barnWidth / 2 + window2Geometry.parameters.width / 2;
+window2.position.y = 0; // Adjust the position of the window on the y-axis
+window2.position.z = 0; // Adjust the position of the window on the z-axis
+barn.add(window2);
+
+// Window on the back side
+const window3Geometry = new THREE.BoxGeometry(windowWidth/2, windowHeight, 0.1);
+const window3Material = new THREE.MeshBasicMaterial({ color: windowColor });
+const window3 = new THREE.Mesh(window3Geometry, window3Material);
+window3.position.x = 0; // Adjust the position of the window on the x-axis
+window3.position.y = 0; // Adjust the position of the window on the y-axis
+window3.position.z = -barnDepth / 2 - window3Geometry.parameters.depth / 2;
+barn.add(window3);
+
+const doorWidth = 1;
+const doorHeight = 2;
+const doorColor = 0x953225;
+
+const doorGeometry = new THREE.BoxGeometry(doorWidth, doorHeight, 0.1);
+const doorMaterial = new THREE.MeshBasicMaterial({ color: doorColor });
+const door = new THREE.Mesh(doorGeometry, doorMaterial);
+door.position.x = 0; // Adjust the position of the door on the x-axis
+door.position.y = -barnHeight / 2 + doorHeight / 2;
+door.position.z = barnDepth / 2 + 0.05; // Position the door on the front face of the barn
+barn.add(door);
+
 const roofColor = 0x953225;
 const roofHeight = 2;
 const roofLength = 2;
