@@ -42,7 +42,7 @@
 
 <!-- Introduction -->
 ## Introduction
-This project is a test and demonstration of WebGL with JS 3. It involves designing and constructing a simple village using WebGL. The village will consist of various elements such as a water tank, a barn, and trees. The project also includes buttons and sliders for interactive features like rotation and zooming.
+This project is a test and demonstration of WebGL with JS 3. It involves designing and constructing a simple village using WebGL. The village consists of various elements such as a water tank, a barn, and trees. The project also includes buttons and sliders for interactive features like rotation and zooming.
 
 <!-- Project Structure -->
 ## Project Structure
@@ -55,7 +55,7 @@ This project is a test and demonstration of WebGL with JS 3. It involves designi
 <!-- Features -->
 ## Features
 - Water Tank: A cylinder-shaped water tank is rendered in the scene.
-- Barn: A rectangular structure with a prism roof is created to represent a barn.
+- Barn: A rectangular structure with a prism roof represents a barn.
 - Trees: Trees are rendered using cylinders for trunks and cones for the top half of the tree.
 - Ground and Water Pond: The ground is defined, and a water pond is drawn on the ground.
 - Buttons:
@@ -75,22 +75,16 @@ To run the WebGL village project, follow these steps:
 
 <!-- Screenshots -->
 ## Screenshots
-![Village Screenshot 1](screenshots/screenshot1.png)
-![Village Screenshot 2](screenshots/screenshot2.png)
-![Village Screenshot 3](screenshots/screenshot3.png)
+![Village Screenshot 1](screenshots/Screenshot01.png)
+![Village Screenshot 2](screenshots/Screenshot02.png)
+![Village Screenshot 3](screenshots/Screenshot03.png)
 
 <!-- Resources -->
 ## Resources
 The project utilizes the following resources:
 - WebGL: A web graphics API for rendering interactive 2D and 3D graphics.
-- JS 3: JavaScript library for creating WebGL applications.
+- JS3: JavaScript library for creating WebGL applications.
 - Three.js: A JavaScript 3D library that simplifies WebGL programming.
-
-<!-- Acknowledgments -->
-## Acknowledgments
-- [WebGL Fundamentals](https://webglfundamentals.org/)
-- [Three.js Documentation](https://threejs.org/docs/index.html)
-- [MDN Web Docs](https://developer.mozilla.org/)
 
 <!-- License -->
 ## License
