@@ -67,11 +67,19 @@ This project is a test and demonstration of WebGL with JS 3. It involves designi
 
 <!-- Usage -->
 ## Usage
-To run the WebGL village project, follow these steps:
-1. Download the project ZIP folder and extract it to a local directory.
-2. Open the extracted folder in a code editor or IDE.
-3. Open the `index.html` file in a web browser.
-4. The WebGL village scene will be displayed, and you can interact with the buttons and sliders as described in the features section.
+To run the WebGL village project and ensure the scene is displayed correctly, please follow these steps:
+
+1. Download the project ZIP folder and extract it to a local directory on your computer.
+2. Open the extracted folder in a code editor or integrated development environment (IDE) of your choice.
+3. Locate the `index.html` file within the project directory.
+4. Start a local web server to serve the project files. You can use tools like "live-server", "http-server", or any other web server of your choice. If you are using Visual Studio Code, you can install the "Live Server" extension and right-click on the `index.html` file to choose "Open with Live Server".
+5. Once the local web server is running, open a web browser.
+6. In the web browser, enter the URL for the local web server. This is typically `http://localhost:port`, where `port` is the port number specified by the web server. For example, if the server is running on port 3000, the URL would be `http://localhost:3000`.
+7. The WebGL village scene will now be displayed in the web browser, and you can interact with the buttons and sliders as described in the features section.
+
+By following these steps and launching the project through a local web server, you can ensure that the WebGL village project is displayed correctly and you can fully experience its interactive features.
+
+Please note that running the project by directly opening the `index.html` file from the file system (without a web server) may result in a blank canvas due to browser security restrictions. Launching it through a web server is essential to avoid this issue.
 
 <!-- Screenshots -->
 ## Screenshots
