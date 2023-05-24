@@ -8,13 +8,16 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const barnWidth = 3;
-const barnHeight = 6;
+const barnHeight = 3;
 const barnDepth = 3;
 const barnColor = 0x823025;
 
 const barnGeometry = new THREE.BoxGeometry(barnWidth, barnHeight, barnDepth);
 const barnMaterial = new THREE.MeshBasicMaterial({ color: barnColor });
 const barn = new THREE.Mesh(barnGeometry, barnMaterial);
+barn.position.x = 2;
+barn.position.y = 1.5;
+barn.position.z = -3;
 scene.add(barn);
 
 const roofColor = 0x953225;
@@ -32,54 +35,102 @@ const ground = new THREE.Mesh(groundGeometry, groundMaterial);
 ground.rotation.x = -Math.PI / 2;
 scene.add(ground);
 
-const pondGeometry = new THREE.PlaneGeometry(10, 10);
+const pondRadius = 5;
+const pondSegments = 32;
+
 const pondMaterial = new THREE.MeshBasicMaterial({ color: 0x7ec4bb });
-const pond = new THREE.Mesh(pondGeometry, pondMaterial);
-pond.rotation.x = -Math.PI / 2;
-pond.position.z = -10;
-pond.position.y = 0.01;
-scene.add(pond);
+
+const pond1 = createPondSegment(pondRadius, pondSegments, pondMaterial, 0.01, 4, -10);
+scene.add(pond1);
+
+const pond2 = createPondSegment(pondRadius * 0.8, pondSegments, pondMaterial, 0.02, 5, -7);
+pond2.rotation.z = Math.PI / 4;
+scene.add(pond2);
+
+const pond3 = createPondSegment(pondRadius * 0.6, pondSegments, pondMaterial, 0.03, 3, -14);
+pond3.rotation.z = Math.PI / 6;
+scene.add(pond3);
+
+function createPondSegment(radius, segments, material, yPos, zPos, xPos) {
+  const pondGeometry = new THREE.CircleGeometry(radius, segments);
+  const pond = new THREE.Mesh(pondGeometry, material);
+  pond.rotation.x = -Math.PI / 2;
+  pond.position.x = xPos;
+  pond.position.y = yPos;
+  pond.position.z = zPos;
+  return pond;
+}
 
 const tankGeometry = new THREE.CylinderGeometry(1, 1, 3, 16);
 const tankMaterial = new THREE.MeshBasicMaterial({ color: 0x9ea4a3 });
 const tank = new THREE.Mesh(tankGeometry, tankMaterial);
-tank.position.x = 0;
-tank.position.y = 1.5;
-tank.position.z = -5;
+tank.position.x = 5;
+tank.position.y = 1.48;
+tank.position.z = -2;
 scene.add(tank);
+
+const openLidGeometry = new THREE.CircleGeometry(.8, 32);
+const openLidMaterial = new THREE.MeshBasicMaterial({ color: 0x7ec4bb });
+const openLid = new THREE.Mesh(openLidGeometry, openLidMaterial);
+openLid.rotation.x = -Math.PI / 2;
+openLid.position.copy(tank.position);
+openLid.position.y = 3;
+scene.add(openLid);
 
 const platformGeometry = new THREE.BoxGeometry(2, 0.2, 2);
 const platformMaterial = new THREE.MeshBasicMaterial({ color: 0x9ea4a3 });
 const platform = new THREE.Mesh(platformGeometry, platformMaterial);
-platform.position.x = 0;
+platform.position.x = 5;
 platform.position.y = 0.1;
-platform.position.z = -5;
+platform.position.z = -2;
 scene.add(platform);
 
 const treeTrunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 2, 8);
-const treeTopGeometry = new THREE.ConeGeometry(1, 3, 8);
+const treeTopGeometries = [
+  new THREE.ConeGeometry(1.5, 2, 8),
+  new THREE.ConeGeometry(1.25, 1.5, 8),
+  new THREE.ConeGeometry(1, 2, 8)
+];
 const treeMaterials = [
   new THREE.MeshBasicMaterial({ color: 0xb78248 }),
+  new THREE.MeshBasicMaterial({ color: 0x2aaf75 }),
+  new THREE.MeshBasicMaterial({ color: 0x45b35e }),
   new THREE.MeshBasicMaterial({ color: 0x60b748 })
 ];
 
-const treePositions = [
-  { x: -10, z: 10 },
-  { x: 10, z: 10 },
-  { x: -10, z: -20 },
-  { x: 10, z: -20 },
-];
+const treePositions = [];
+
+const numTrees = 30;
+const minDistance = 11;
+const maxX = 50;
+const maxZ = 50;
+
+for (let i = 0; i < numTrees; i++) {
+  let x, z;
+  do {
+    x = Math.random() * (maxX * 2) - maxX;
+    z = Math.random() * (maxZ * 2) - maxZ;
+  } while (Math.sqrt(x * x + z * z) < minDistance);
+  treePositions.push({ x, z });
+}
 
 treePositions.forEach(position => {
   const treeTrunk = new THREE.Mesh(treeTrunkGeometry, treeMaterials[0]);
-  const treeTop = new THREE.Mesh(treeTopGeometry, treeMaterials[1]);
-  treeTop.position.y = 2;
+
+  const treeTop = new THREE.Group();
+  for (let i = 0; i < treeTopGeometries.length; i++) {
+    const cone = new THREE.Mesh(treeTopGeometries[i], treeMaterials[i + 1]);
+    cone.position.y = i + 1;
+    treeTop.add(cone);
+  }
+
   const tree = new THREE.Group();
   tree.add(treeTrunk);
   tree.add(treeTop);
   tree.position.set(position.x, 1, position.z);
   scene.add(tree);
 });
+
 
 const rotationToggleBtn = document.getElementById('camera-rotation-toggle');
 const barnRotationToggleBtn = document.getElementById('barn-rotation-toggle');
