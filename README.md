@@ -19,9 +19,9 @@
   Design and construct a simple village with interactive features<br>
   <a href="#usage">View Demo</a>
   ·
-  <a href="https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/issues">Report Bug</a>
+  <a href="https://github.com/John-JonSteyn/ComputerGraphicsVillage/issues">Report Bug</a>
   ·
-  <a href="https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/issues">Request Feature</a>
+  <a href="https://github.com/John-JonSteyn/ComputerGraphicsVillage/issues">Request Feature</a>
 </p>
 </div>
 
@@ -99,13 +99,13 @@ The project utilizes the following resources:
 This project is licensed under the [MIT License](LICENSE).
 
 <!-- Links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Thorin-the-Bearded/ComputerGraphicsVillage.svg?style=for-the-badge
-[contributors-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Thorin-the-Bearded/ComputerGraphicsVillage.svg?style=for-the-badge
-[forks-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/network/members
-[stars-shield]: https://img.shields.io/github/stars/Thorin-the-Bearded/ComputerGraphicsVillage.svg?style=for-the-badge
-[stars-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Thorin-the-Bearded/ComputerGraphicsVillage.svg?style=for-the-badge
-[issues-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/issues
-[license-shield]: https://img.shields.io/github/license/Bearded-Viking/TaskFlow.svg?style=for-the-badge
-[license-url]: https://github.com/Thorin-the-Bearded/ComputerGraphicsVillage/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/John-JonSteyn/ComputerGraphicsVillage.svg?style=for-the-badge
+[contributors-url]: https://github.com/John-JonSteyn/ComputerGraphicsVillage/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/John-JonSteyn/ComputerGraphicsVillage.svg?style=for-the-badge
+[forks-url]: https://github.com/John-JonSteyn/ComputerGraphicsVillage/network/members
+[stars-shield]: https://img.shields.io/github/stars/TJohn-JonSteyn/ComputerGraphicsVillage.svg?style=for-the-badge
+[stars-url]: https://github.com/John-JonSteyn/ComputerGraphicsVillage/stargazers
+[issues-shield]: https://img.shields.io/github/issues/John-JonSteyn/ComputerGraphicsVillage.svg?style=for-the-badge
+[issues-url]: https://github.com/John-JonSteyn/ComputerGraphicsVillage/issues
+[license-shield]: https://img.shields.io/github/license/John-JonSteyn/TaskFlow.svg?style=for-the-badge
+[license-url]: https://github.com/John-JonSteyn/ComputerGraphicsVillage/blob/master/LICENSE
