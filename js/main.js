@@ -175,6 +175,7 @@ function switchScene(sceneType) {
     gardenLight1.visible = false;
     gardenLight2.visible = false;
     gardenLight3.visible = false;
+    sun.visible = true;
     moon.visible = false;
     stars.forEach(star => star.visible = false);
     sunLight.visible = true;
@@ -193,6 +194,7 @@ function switchScene(sceneType) {
     gardenLight1.visible = true;
     gardenLight2.visible = true;
     gardenLight3.visible = true;
+    sun.visible = false;
     moon.visible = true;
     stars.forEach(star => star.visible = true);
     sunLight.visible = false;
@@ -230,7 +232,7 @@ const barnDepth = 6;
 const barnColor = 0xb78248;
 
 const barnGeometry = new THREE.BoxGeometry(barnWidth, barnHeight, barnDepth);
-const barnMaterial = new THREE.MeshStandardMaterial({ color: barnColor });
+const barnMaterial = new THREE.MeshStandardMaterial({ map: barnTexture });
 const barn = new THREE.Mesh(barnGeometry, barnMaterial);
 barn.position.x = 2;
 barn.position.y = 1.5;
@@ -243,7 +245,7 @@ const windowColor = 0x9ea4a3;
 
 // Window on the left side
 const window1Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
-const window1Material = new THREE.MeshStandardMaterial({ map: waterTexture });
+const window1Material = new THREE.MeshStandardMaterial({ map: windowTexture });
 const window1 = new THREE.Mesh(window1Geometry, window1Material);
 window1.position.x = -barnWidth / 2 - window1Geometry.parameters.width / 2;
 window1.position.y = 0; // Adjust the position of the window on the y-axis
@@ -252,7 +254,7 @@ barn.add(window1);
 
 // Window on the right side
 const window2Geometry = new THREE.BoxGeometry(0.1, windowHeight, windowWidth);
-const window2Material = new THREE.MeshStandardMaterial({ map: waterTexture });
+const window2Material = new THREE.MeshStandardMaterial({ map: windowTexture });
 const window2 = new THREE.Mesh(window2Geometry, window2Material);
 window2.position.x = barnWidth / 2 + window2Geometry.parameters.width / 2;
 window2.position.y = 0; // Adjust the position of the window on the y-axis
@@ -261,7 +263,7 @@ barn.add(window2);
 
 // Window on the back side
 const window3Geometry = new THREE.BoxGeometry(windowWidth/2, windowHeight, 0.1);
-const window3Material = new THREE.MeshStandardMaterial({ map: waterTexture });
+const window3Material = new THREE.MeshStandardMaterial({ map: windowTexture });
 const window3 = new THREE.Mesh(window3Geometry, window3Material);
 window3.position.x = 0; // Adjust the position of the window on the x-axis
 window3.position.y = 0; // Adjust the position of the window on the y-axis
@@ -273,7 +275,7 @@ const doorHeight = 2;
 const doorColor = 0x5d3a19;
 
 const doorGeometry = new THREE.BoxGeometry(doorWidth, doorHeight, 0.1);
-const doorMaterial = new THREE.MeshStandardMaterial({ color: doorColor });
+const doorMaterial = new THREE.MeshStandardMaterial({ map: doorTexture });
 const door = new THREE.Mesh(doorGeometry, doorMaterial);
 door.position.x = 0; // Adjust the position of the door on the x-axis
 door.position.y = -barnHeight / 2 + doorHeight / 2;
@@ -299,11 +301,9 @@ const extrudeSettings = {
   bevelEnabled: false
 };
 
-// Create the roof geometry using ExtrudeGeometry
 const roofGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
 
-// Create the roof material
-const roofMaterial = new THREE.MeshStandardMaterial({ color: roofColor });
+const roofMaterial = new THREE.MeshStandardMaterial({ map: roofTexture });
 
 // Create the roof mesh
 const roof = new THREE.Mesh(roofGeometry, roofMaterial);
@@ -315,8 +315,13 @@ roof.position.x = -1.5;
 roof.position.z = -3;
 barn.add(roof);
 
+// Adjust texture tiling and position
+roofMaterial.map.repeat.set(1, 1); // Adjust tiling
+roofMaterial.map.offset.set(0, 0); // Adjust position
+
+
 const groundGeometry = new THREE.PlaneGeometry(100, 100);
-const groundMaterial = new THREE.MeshStandardMaterial({ color: 0x406821 });
+const groundMaterial = new THREE.MeshStandardMaterial({ map: grassTexture });
 const ground = new THREE.Mesh(groundGeometry, groundMaterial);
 ground.rotation.x = -Math.PI / 2;
 scene.add(ground);
