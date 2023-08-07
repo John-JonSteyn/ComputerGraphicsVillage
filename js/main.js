@@ -383,10 +383,10 @@ const treeTopGeometries = [
   new THREE.ConeGeometry(1, 2, 8)
 ];
 const treeMaterials = [
-  new THREE.MeshStandardMaterial({ color: 0xb78248 }),
-  new THREE.MeshStandardMaterial({ color: 0x2aaf75 }),
-  new THREE.MeshStandardMaterial({ color: 0x45b35e }),
-  new THREE.MeshStandardMaterial({ color: 0x60b748 })
+  new THREE.MeshStandardMaterial({ map: trunkTexture }),
+  new THREE.MeshStandardMaterial({ map: treeBottomTexture }),
+  new THREE.MeshStandardMaterial({ map: treeMiddleTexture }),
+  new THREE.MeshStandardMaterial({ map: treeTopTexture })
 ];
 
 const treePositions = [];
